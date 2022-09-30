@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>알라딘</title>
+    <!-- 아이콘폰트 주소 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        h2{
+            text-align: center;
+        }
+        #banner{
+            width: 578px;
+            height: 338px;
+            border: 2px solid #000;
+            position: relative;
+            margin: 0px auto;
+        }
+        #movie{
+            width: 578px;
+            height: 338px;
+            margin: 0px auto;
+        }
+        i.fas{
+        cursor: pointer;
+        }
+        .fa-angle-left{
+            font-weight: bold;
+            font-size: 45px;
+            position: relative;
+            left: 0px; 
+            transform: translateY(-190px);
+        }
+        .fa-angle-right{
+            font-weight: bold;
+            font-size: 45px;
+            position: absolute;
+            right: 0px;
+            transform: translateY(-190px);
+        }
+
+        #page{
+        background: rgba(0,0,0,0.7);
+        color: #fff;
+        font-size: 14px;
+        position: absolute; right: 0px;bottom: 0px;
+        padding: 4px 8px;
+    }
+    </style>
+</head>
+<body>
+    <h2>알라딘(Aladin)</h2>
+
+    <article id="banner">
+        <img src="./images/m_banner01.jpg" alt="" id="movie">
+
+         <!-- 좌 우측 방향 버튼 -->
+         <i class="fas fa-angle-left"></i>
+         <i class="fas fa-angle-right"></i>
+
+        <span id="page"></span>
+
+    </article>
+
+    <script>
+        
+        let n =1;
+
+        function nextimg(){
+            if(n==10){
+                n=1;
+            }else{
+                n++;
+            }
+            console.log(n);
+            document.getElementById('page').innerHTML=n +'/10';
+            document.getElementById('movie').src='./images/m_banner0'+n+'.jpg';
+        }
+
+        function previmg(){
+            if(n==1){
+                n=10;
+            }else{
+                n--;
+            }
+            console.log(n);
+            document.getElementById('page').innerHTML=n +'/10';
+            document.getElementById('movie').src='./images/m_banner0'+n+'.jpg';
+        }
+        
+        const l_btn = document.querySelector('i.fa-angle-left');
+        const r_btn = document.querySelector('i.fa-angle-right');
+
+        r_btn.addEventListener('click',function(e){
+            nextimg();
+        });
+
+        l_btn.addEventListener('click',function(e){
+            previmg();
+        });
+
+    </script>
+</body>
+</html>
