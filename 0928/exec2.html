@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exec2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+         #banner{
+            width: 500px;
+            height: 791px;
+            border: 2px solid #000;
+            position: relative;
+        }
+         #banner *{padding: 0px; margin: 0px auto;}
+         #banner img{
+            width: 100%;
+         }
+         i{  
+            display: block;
+            position: relative;
+            bottom: 400px;
+            font-size: 40px;
+            display: inline-block;
+            background-color: rgba(51, 51, 51, 0.723);
+            color:#fff;
+            cursor: pointer;
+        }
+        .fa-angle-left{}
+        .fa-angle-right{float: right;}
+        #banner ul{display: flex;}
+        #banner ul li{
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        li:hover{
+            transform: scale(1.1);
+            opacity: 0.7;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        
+    </script>
+</head>
+<body>
+    <article id="banner">
+        <ul>
+            <li><img src="./img/movie_image (1).jpg" alt="" onclick='imgChange(1);'></li>
+            <li><img src="./img/movie_image (2).jpg" alt="" onclick='imgChange(2);'></li>
+            <li><img src="./img/movie_image (3).jpg" alt="" onclick='imgChange(3);'></li>
+            <li><img src="./img/movie_image (4).jpg" alt="" onclick='imgChange(4);'></li>
+            <li><img src="./img/movie_image (5).jpg" alt="" onclick='imgChange(5);'></li>
+            <li><img src="./img/movie_image (6).jpg" alt="" onclick='imgChange(6);'></li>
+            <li><img src="./img/movie_image (7).jpg" alt="" onclick='imgChange(7);'></li>
+            <li><img src="./img/movie_image (8).jpg" alt="" onclick='imgChange(8);'></li>
+            <li><img src="./img/movie_image (9).jpg" alt="" onclick='imgChange(9);'></li>
+            <li><img src="./img/movie_image (10).jpg" alt="" onclick='imgChange(10);'></li>
+        </ul>
+        <img src="./img/movie_image (1).jpg" alt="" id="photo">
+        
+        <!-- 좌, 우측 방향버튼 -->
+        <i class="fas fa-angle-left"></i>
+        <i class="fas fa-angle-right"></i>
+        
+    </article>
+    <script>
+        
+        //초기값
+        let n=1;
+
+        //1씩 증가하는 함수
+        function nextImg(){
+            if(n==10){
+                n=1;
+            }else{
+                n++
+            }
+            console.log(n); //콘솔모드에서 확인한다
+            document.getElementById('photo').src='./img/movie_image ('+n+').jpg';
+        }
+
+        //1씩 감소하는 함수
+        function prevImg(){
+            if(n==1){
+                n=10;
+            }else{
+                n--
+            }
+            console.log(n); //콘솔모드에서 확인한다
+            document.getElementById('photo').src='./img/movie_image ('+n+').jpg';
+        }
+        
+        //버튼을 클릭시 각각 함수를 호출하여 결과를 확인한다.
+        const l_btn = document.querySelector('.fa-angle-left')
+        const r_btn = document.querySelector('.fa-angle-right')
+
+        l_btn.addEventListener('click',function(e){ e.preventDefault();
+            prevImg();
+        });
+
+        r_btn.addEventListener('click',function(e){ e.preventDefault();
+            nextImg();
+        });
+        function imgChange(a){
+            document.getElementById('photo').src='./img/movie_image ('+a+').jpg';
+            a=n
+        }
+        </script>
+</body>
+</html>

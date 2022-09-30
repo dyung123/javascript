@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_javascript_exec</title>
+</head>
+<body>
+    <h4>실습예제 1.</h4>
+    <p>textarea태그를 활용하여 사용자가 입력한 글자수를 체크하여 더이상 글자가 써지지 않도록 하며 몇글자 남았는지 체크하기</p>
+    <p>게시판에 댓글, 쇼핑몰의 한줄평 작성하기, 상품평 남기기 콘텐츠 등을 구현할 때 사용한다.</p>
+    <form name="" method="get/post" action="">
+        <fieldset>
+            <legend>댓글체크하기</legend>
+            <p class="p01">&#x261e;소감을 125자 이내로 적어주세요.</p>
+            <textarea name="msg" id="" cols="50" rows="10" onkeydown="txtCount(this.form.msg, this.form.txtLen, maxLimit)"onkeyup="txtCount(this.form.msg, this.form.txtLen, 125)"></textarea>
+            <p class="p01">현재
+                <input type="text" name="txtLen" size="3" maxlength="3" value="125" readonly>
+                글자가 남았습니다.
+            </p>
+        </fieldset>
+    </form>
+    <script>
+        // 글자수 체크하는 함수 작성하기 
+
+        function txtCount(msg, txtLen, maxLimit){
+            // 만약에 텍스트 박스에서 입력한 글자의 개수가 최대 125자보다 크면
+            if(msg.value.length>maxLimit){//만약에
+                //만약에 텍스트박스에서 입력한 글자의 개수가 최대 125글자보다 크면
+                msg.value=msg.value.substring(0, maxLimit);
+            }else{//그렇지 않으면
+                txtLen.value=maxLimit - msg.value.length; // 125글자에서 사용자가 입력한 글자수를 뻬기하여 변수에 담아 출력한다.
+            }
+        }
+
+        // 표준이벤트 방식으로 함수호출하여 실행하기 
+        let tbox = document.querySelector('#tbox');
+        tbox
+
+        // 이벤트 사용하여 함수 호출하고 실행하기
+        keypress, keydown
+    </script>
+</body>
+</html>
